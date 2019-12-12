@@ -1,0 +1,15 @@
+.user {
+    padding-left: 130px;
+    position: relative;
+}
+.user .avatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 115px;
+    height: 115px;
+}
+.user .name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}

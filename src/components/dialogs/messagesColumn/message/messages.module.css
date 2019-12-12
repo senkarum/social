@@ -1,0 +1,30 @@
+
+.messages_column {
+    width: calc(100% - 170px);
+    padding: 10px;
+}
+
+.message {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.message p {
+    display: inline-block;
+    max-width: 90%;
+    padding: 5px 10px;
+    border-radius: 10px 10px 10px 0;
+    color: white;
+    background:  #1fbfee;
+    text-align: left;
+
+}
+
+.message_user {
+    text-align: right;
+}
+
+.message_user p {
+    background: #1f99c8;
+    border-radius: 10px 10px 0 10px;
+}

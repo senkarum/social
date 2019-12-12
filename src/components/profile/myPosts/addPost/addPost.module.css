@@ -1,0 +1,13 @@
+.add_posts {
+    margin-bottom: 20px;
+}
+.add_posts textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    resize: none;
+    border: 2px solid #1fbfee;
+}
+.add_posts .btn {
+    margin-left: auto;
+}
