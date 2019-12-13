@@ -10,7 +10,8 @@ let AddMessage = (props) => {
     let addMessageBtn = (e) => {
         e.preventDefault();
         let newMessage = messageTextarea.current.value;
-        if (newMessage.length > 0) props.addMessageFunction(newMessage);
+        if (newMessage.length > 0) props.dispatch({type:'ADD-MESSAGE-FUNCTION', message: newMessage});
+        messageTextarea.current.value = '';
     };
 
 

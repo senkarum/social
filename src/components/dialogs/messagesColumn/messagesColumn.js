@@ -2,7 +2,7 @@ import React from "react";
 import {
     Route,
 } from "react-router-dom";
-import style from "./messagesColumn.module.css";
+import style from "./../dialog.module.css";
 import Message from "./message/message";
 
 

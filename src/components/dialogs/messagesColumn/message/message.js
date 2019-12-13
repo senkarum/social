@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./messages.module.css";
+import style from "./../../dialog.module.css";
 
 let Message = (props) => {
     return (
@@ -7,6 +7,6 @@ let Message = (props) => {
             <p>{props.message}</p>
         </div>
     );
-}
+};
 
 export default Message;

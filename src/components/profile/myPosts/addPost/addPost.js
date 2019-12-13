@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./addPost.module.css";
+import style from "./../myPosts.module.css";
 
 let postTextarea = React.createRef();
 
@@ -8,13 +8,15 @@ let addPost = (props) => {
     let addPostBtnClick = (e) => {
         e.preventDefault();
         let postText = postTextarea.current.value;
-        if (postText.length > 0) props.addPostFunction(postText);
-        props.updateNewPostText('')
+        if (postText.length > 0) props.dispatch({type: 'ADD-POST'});
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: ''})
     };
 
     let onPostChange = () => {
+
+        console.log(1);
         let postText = postTextarea.current.value;
-            props.updateNewPostText(postText);
+            props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: postText})
     };
     return (
         <div className={style.add_posts}>

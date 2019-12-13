@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./friend.module.css";
+import style from "./../../sidebar.module.css";
 
 
 let Friend = (props) => {

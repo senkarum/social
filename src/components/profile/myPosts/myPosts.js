@@ -14,7 +14,7 @@ let MyPosts = (props) => {
 
     return (
         <div className={style.my_posts}>
-            <AddPost updateNewPostText={props.updateNewPostText} addPostFunction={props.addPostFunction} addPostData={props.profileState.newPostText}/>
+            <AddPost dispatch={props.dispatch} addPostData={props.profileState.newPostText}/>
             <div className={style.latest_posts}>
                 { postsElements }
             </div>

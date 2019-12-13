@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./post.module.css"
+import style from "./../myPosts.module.css"
 
 
 let Post = (props) => {

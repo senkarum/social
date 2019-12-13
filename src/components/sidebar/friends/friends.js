@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./friends.module.css";
+import style from "./../sidebar.module.css";
 import Friend from "./friend/friend";
 
 

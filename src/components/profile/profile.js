@@ -9,7 +9,7 @@ let  Profile = (props) => {
             <UserBg/>
             <User/>
 
-            <MyPosts updateNewPostText={props.updateNewPostText} addPostFunction={props.addPostFunction} profileState={props.profileState}/>
+            <MyPosts dispatch={props.dispatch} profileState={props.profileState}/>
         </section>
     );
 }

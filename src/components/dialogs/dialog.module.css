@@ -21,3 +21,128 @@
     height: 80px;
 
 }
+
+.dialogs {
+    display: flex;
+}
+
+.dialogs_columns {
+    width: 160px;
+    padding: 10px;
+    border-right: 2px solid #1fbfee;
+    max-height: calc(100vh - 144px);
+}
+
+
+.dialog_item {
+    text-align: center;
+    border-bottom: 2px solid #1fbfee;
+    cursor: pointer;
+}
+.dialog_item a {
+    padding: 5px 0;
+    color: inherit;
+    display: block;
+    width: 100%;
+}
+.dialog_item:hover {
+    color: white;
+    background:  #1fbfee;
+}
+
+.dialog_item:last-of-type {
+    border-bottom: none;
+}
+
+
+.dialog_item {
+    text-align: center;
+    border-bottom: 2px solid #1fbfee;
+    cursor: pointer;
+}
+.dialog_item a {
+    padding: 5px 0;
+    color: inherit;
+    display: block;
+    width: 100%;
+}
+
+.dialog_item .active {
+    font-weight: bold;
+}
+.dialog_item:hover {
+    color: white;
+    background:  #1fbfee;
+}
+
+.dialog_item:last-of-type {
+    border-bottom: none;
+}
+
+
+
+.messages_column {
+    width: calc(100% - 170px);
+    position: relative;
+    padding: 10px 10px 175px;
+}
+
+
+
+.overflow_container {
+    max-height: calc(100vh - 350px);
+    overflow-y: auto;
+}
+.message {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.message p {
+    display: inline-block;
+    max-width: 90%;
+    padding: 5px 10px;
+    border-radius: 10px 10px 10px 0;
+    color: white;
+    background:  #1fbfee;
+    text-align: left;
+
+}
+
+.message_user {
+    text-align: right;
+}
+
+.message_user p {
+    background: #1f99c8;
+    border-radius: 10px 10px 0 10px;
+}
+
+
+
+
+.message {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.message p {
+    display: inline-block;
+    max-width: 90%;
+    padding: 5px 10px;
+    border-radius: 10px 10px 10px 0;
+    color: white;
+    background:  #1fbfee;
+    text-align: left;
+
+}
+
+.message_user {
+    text-align: right;
+}
+
+.message_user p {
+    background: #1f99c8;
+    border-radius: 10px 10px 0 10px;
+}
+

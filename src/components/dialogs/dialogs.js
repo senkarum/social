@@ -9,9 +9,9 @@ import AddMessage from "./addMessage/addMessage";
 let Dialogs = (props) => {
     return (
         <section className={style.dialogs}>
-            <DialogsColumn switchDialogFunction={props.switchDialogFunction} dialogsData={props.dialogState.dialogsData}/>
-            <MessagesColumn messagesData={props.dialogState.messagesData}/>
-            <AddMessage currentDialog={props.dialogState.currentDialog} addMessageFunction={props.addMessageFunction}/>
+            <DialogsColumn dispatch={props.dispatch} dialogsData={props.dialogsState.dialogsData}/>
+            <MessagesColumn messagesData={props.dialogsState.messagesData}/>
+            <AddMessage dispatch={props.dispatch}/>
         </section>
     );
 }
