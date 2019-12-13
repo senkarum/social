@@ -2,10 +2,14 @@
 .messages_column {
     width: calc(100% - 170px);
     padding: 10px;
-    max-height: calc(100vh - 164px);
-    overflow-y: auto;
+    position: relative;
+    padding-bottom: 175px;
 }
 
+.overflow_container {
+    max-height: calc(100vh - 350px);
+    overflow-y: auto;
+}
 .message {
     font-size: 16px;
     margin-bottom: 15px;
@@ -30,3 +34,4 @@
     background: #1f99c8;
     border-radius: 10px 10px 0 10px;
 }
+

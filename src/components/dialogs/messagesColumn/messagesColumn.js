@@ -14,8 +14,12 @@ let MessagesColumn = (props) => {
     return (
 
             <div className={style.messages_column}>
+                <div className={style.overflow_container}>
                 { messagesElements }
+                </div>
+
             </div>
+
 
     );
 }

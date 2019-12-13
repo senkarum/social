@@ -2,16 +2,18 @@ import React from "react";
 import style from "./dialog.module.css";
 import DialogsColumn from "./dialogsColumn/dialogsColumn";
 import MessagesColumn from "./messagesColumn/messagesColumn";
+import AddMessage from "./addMessage/addMessage";
 
 
 
-let Dialog = (props) => {
+let Dialogs = (props) => {
     return (
         <section className={style.dialogs}>
-            <DialogsColumn dialogsData={props.dialogState.dialogsData}/>
+            <DialogsColumn switchDialogFunction={props.switchDialogFunction} dialogsData={props.dialogState.dialogsData}/>
             <MessagesColumn messagesData={props.dialogState.messagesData}/>
+            <AddMessage currentDialog={props.dialogState.currentDialog} addMessageFunction={props.addMessageFunction}/>
         </section>
     );
 }
 
-export default Dialog;
+export default Dialogs;
