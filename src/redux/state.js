@@ -1,3 +1,9 @@
+import profileReducer from "./profileReducer";
+import dialogReducer from "./dialogReducer";
+import sidebarReducer from "./sidebarReducer";
+
+
+
 let store = {
     _state: {
         profilePage: {
@@ -32,8 +38,6 @@ let store = {
         },
 
         dialogPage: {
-            currentDialog: 1,
-
             dialogsData: [
                 {
                     id: 1,
@@ -156,7 +160,9 @@ let store = {
                     isUserMessage: false,
                     message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque facere natus odio quasi quo, velit?',
                 },
-            ]
+            ],
+            newMessageText: '',
+            currentDialog: 1,
         },
 
         sidebarData: {
@@ -207,40 +213,17 @@ let store = {
     },
 
     dispatch(action) {
-        switch (action.type) {
-            case 'ADD-POST':
-                let newPost = {
-                    id: 5,
-                    messages: this._state.profilePage.newPostText,
-                    likes: 0,
-                };
-                this._state.profilePage.postsData.push(newPost);
-                this._callSubscriber(this._state);
-                break;
-
-            case 'UPDATE-NEW-POST-TEXT':
-                this._state.profilePage.newPostText = action.newText;
-                this._callSubscriber(this._state);
-                break;
-
-            case 'switchDialogFunction':
-                this._state.dialogPage.currentDialog = action.dialogId;
-                break;
-
-            case 'ADD-MESSAGE-FUNCTION':
-                let newMessage = {
-                    id: store.getState().dialogPage.currentDialog,
-                    isUserMessage: true,
-                    message: action.message,
-                };
-                this._state.dialogPage.messagesData.push(newMessage);
-                store._callSubscriber(this._state);
-                break;
-
-            default: return false;
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogPage = dialogReducer(this._state.dialogPage, action);
+        this._state.sidebarData = sidebarReducer(this._state.sidebarData, action);
+        this._callSubscriber(this._state);
     },
 };
+
+
+
+
+
 
 window.state = store;
 

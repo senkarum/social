@@ -11,7 +11,7 @@ let Dialogs = (props) => {
         <section className={style.dialogs}>
             <DialogsColumn dispatch={props.dispatch} dialogsData={props.dialogsState.dialogsData}/>
             <MessagesColumn messagesData={props.dialogsState.messagesData}/>
-            <AddMessage dispatch={props.dispatch}/>
+            <AddMessage dispatch={props.dispatch}  addMessageData={props.dialogsState.newMessageText}/>
         </section>
     );
 }

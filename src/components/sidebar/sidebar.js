@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import Friends from "./friends/friends";
 
 
+
 let Sidebar = (props) => {
     return (
         <nav className={style.sidebar}>

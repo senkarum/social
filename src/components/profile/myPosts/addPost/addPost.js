@@ -1,22 +1,22 @@
 import React from "react";
 import style from "./../myPosts.module.css";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/profileReducer";
 
 let postTextarea = React.createRef();
 
 
 let addPost = (props) => {
+    console.log(props);
     let addPostBtnClick = (e) => {
         e.preventDefault();
         let postText = postTextarea.current.value;
-        if (postText.length > 0) props.dispatch({type: 'ADD-POST'});
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: ''})
+        if (postText.length > 0) props.dispatch(addPostActionCreator());
+        props.dispatch(updateNewPostTextActionCreator(''));
     };
 
     let onPostChange = () => {
-
-        console.log(1);
         let postText = postTextarea.current.value;
-            props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: postText})
+        props.dispatch(updateNewPostTextActionCreator(postText));
     };
     return (
         <div className={style.add_posts}>
