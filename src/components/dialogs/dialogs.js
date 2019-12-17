@@ -2,16 +2,16 @@ import React from "react";
 import style from "./dialog.module.css";
 import DialogsColumn from "./dialogsColumn/dialogsColumn";
 import MessagesColumn from "./messagesColumn/messagesColumn";
-import AddMessage from "./addMessage/addMessage";
+import AddMessageContainer from "./addMessage/addMessageContainer";
 
 
 
 let Dialogs = (props) => {
     return (
         <section className={style.dialogs}>
-            <DialogsColumn dispatch={props.dispatch} dialogsData={props.dialogsState.dialogsData}/>
-            <MessagesColumn messagesData={props.dialogsState.messagesData}/>
-            <AddMessage dispatch={props.dispatch}  addMessageData={props.dialogsState.newMessageText}/>
+            <DialogsColumn store={props.store}/>
+            <MessagesColumn messagesData={props.store.getState().dialogPage.messagesData}/>
+            <AddMessageContainer store={props.store}/>
         </section>
     );
 }

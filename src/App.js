@@ -19,8 +19,8 @@ const App = (props) => {
             <div className="content_cont">
                 <Sidebar sidebarData={props.appState.sidebarData}/>
                 <Switch>
-                    <Route path='/profile' render={() => <Profile dispatch={props.dispatch} profileState={props.appState.profilePage}/>}/>
-                    <Route path='/dialog' render={() => <Dialogs dispatch={props.dispatch}  dialogsState={props.appState.dialogPage}/>}/>
+                    <Route path='/profile' render={() => <Profile store={props.store}/>}/>
+                    <Route path='/dialog' render={() => <Dialogs store={props.store}/>}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>

@@ -7,7 +7,8 @@ import {switchDialogActionCreator} from "../../../../redux/dialogReducer";
 let Dialog = (props) => {
 
     let switchDialog = (e) => {
-        props.dispatch(switchDialogActionCreator(e.target.getAttribute('data-id')));
+        let currentId = e.target.getAttribute('data-id');
+        props.switchDialog(currentId)
     };
 
 

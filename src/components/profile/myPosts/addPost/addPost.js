@@ -1,28 +1,25 @@
 import React from "react";
 import style from "./../myPosts.module.css";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/profileReducer";
 
 let postTextarea = React.createRef();
 
 
-let addPost = (props) => {
-    console.log(props);
+let AddPost = (props) => {
     let addPostBtnClick = (e) => {
         e.preventDefault();
         let postText = postTextarea.current.value;
-        if (postText.length > 0) props.dispatch(addPostActionCreator());
-        props.dispatch(updateNewPostTextActionCreator(''));
+        props.addPost(postText)
     };
 
     let onPostChange = () => {
         let postText = postTextarea.current.value;
-        props.dispatch(updateNewPostTextActionCreator(postText));
+        props.updateNewPostText(postText)
     };
     return (
         <div className={style.add_posts}>
             <h2>My Posts</h2>
             <form action="">
-                <textarea onChange={onPostChange} ref={postTextarea} value={props.addPostData} rows="4"
+                <textarea onChange={onPostChange} ref={postTextarea} value={props.newPostText} rows="4"
                           placeholder="your news"/>
                 <button onClick={addPostBtnClick} className="btn">Send</button>
             </form>
@@ -30,4 +27,4 @@ let addPost = (props) => {
     );
 };
 
-export default addPost;
+export default AddPost;
