@@ -7,33 +7,7 @@ import sidebarReducer from "./sidebarReducer";
 let store = {
     _state: {
         profilePage: {
-            postsData: [
-                {
-                    postId: 1,
-                    messages: 'text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1',
-                    likes: 23,
-                },
 
-                {
-                    postId: 2,
-                    messages: 'text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2' +
-                        ' text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2',
-                    likes: 33,
-                },
-
-                {
-                    postId: 3,
-                    messages: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque beatae commodi cum deserunt dignissimos doloribus dolorum, earum error fuga laborum nemo nesciunt rem rerum suscipit voluptas! Ab incidunt tempora velit?',
-                    likes: 22,
-                },
-
-                {
-                    postId: 4,
-                    messages: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque beatae commodi cum deserunt dignissimos doloribus dolorum, earum error fuga laborum nemo nesciunt rem rerum suscipit voluptas! Ab incidunt tempora velit?',
-                    likes: 11,
-                },
-            ],
-            newPostText: '',
 
         },
 

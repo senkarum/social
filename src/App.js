@@ -12,7 +12,6 @@ import Settings from "./components/setting/settings";
 
 
 const App = (props) => {
-
     return (
         <div className="full_page">
             <Header/>
