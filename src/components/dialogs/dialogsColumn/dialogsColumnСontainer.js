@@ -1,16 +1,21 @@
 import React from "react";
-import StoreContext from "../../../storeContext";
 import DialogsColumn from "./dialogsColumn";
+import {connect} from "react-redux";
 
 
-let DialogsColumnContainer = (props) => {
-    return (
-        <StoreContext.Consumer>
-            {(store) => {
-               return <DialogsColumn dialogsData={store.getState().dialogPage.dialogsData}/>
-            }}
-        </StoreContext.Consumer>
-    );
+
+let mapStateToProps = (state) => {
+    return {
+        dialogsData: state.dialogPage.dialogsData,
+    }
 };
+
+let mapDispatchToProps = (dispatch) => {
+    return {}
+};
+const DialogsColumnContainer = connect(mapStateToProps, mapDispatchToProps)(DialogsColumn);
+
+
+
 
 export default DialogsColumnContainer;

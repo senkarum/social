@@ -1,24 +1,24 @@
 import React from "react";
 import {switchDialogActionCreator} from "../../../../redux/dialogReducer";
 import Dialog from "./dialog";
-import StoreContext from "../../../../storeContext";
+import {connect} from "react-redux";
 
 
-let DialogContainer = (props) => {
 
 
-    return (
-        <StoreContext.Consumer>
-            {
-                (store) => {
-                    let switchDialog = (id) => {
-                        store.dispatch(switchDialogActionCreator(id));
-                    };
-                    return <Dialog switchDialog={switchDialog} id={props.id} name={props.name}/>
-                }
-            }
-        </StoreContext.Consumer>
-    );
+let mapStateToProps = (state) => {
+    return {
+    }
 };
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        switchDialog: (id) => {
+            dispatch(switchDialogActionCreator(id))
+        }
+    }
+};
+
+const DialogContainer = connect(mapStateToProps, mapDispatchToProps)(Dialog);
 
 export default DialogContainer;

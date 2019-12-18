@@ -1,20 +1,23 @@
 import React from "react";
 import MessagesColumn from "./messagesColumn";
-import StoreContext from "../../../storeContext";
+import {connect} from "react-redux";
 
 
-let MessagesColumnContainer = (props) => {
-
-    return (
-        <StoreContext.Consumer>
-            {(store) => {
-                return <MessagesColumn messagesData={store.getState().dialogPage.messagesData}/>
-            }
-            }
-        </StoreContext.Consumer>
 
 
-    );
-}
+let mapStateToProps = (state) => {
+    return {
+        messagesData: state.dialogPage.messagesData,
+    }
+};
+
+let mapDispatchToProps = (dispatch) => {
+    return {}
+};
+
+const MessagesColumnContainer = connect(mapStateToProps, mapDispatchToProps)(MessagesColumn);
+
+
+
 
 export default MessagesColumnContainer;

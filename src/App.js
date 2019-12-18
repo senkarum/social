@@ -9,7 +9,6 @@ import Dialogs from "./components/dialogs/dialogs";
 import Music from "./components/music/music";
 import News from "./components/news/news";
 import Settings from "./components/setting/settings";
-import store from "./redux/reduxStore";
 
 
 const App = (props) => {

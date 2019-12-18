@@ -8,31 +8,16 @@ import {
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import StoreContext, {Provider} from "./storeContext";
+import {Provider} from "react-redux";
 
 
+ReactDOM.render(
+    <Router>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </Router>, document.getElementById('root'));
 
-let rerenderEntireTree = (state) => {
-    ReactDOM.render(
-        <Router>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </Router>, document.getElementById('root')) ;
-
-};
-
-
-
-
-
-
-rerenderEntireTree(store.getState());
-
-store.subscribe(() => {
-    let state = store.getState();
-    rerenderEntireTree(state);
-});
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

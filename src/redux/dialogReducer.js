@@ -132,23 +132,29 @@ let initialState = {
 
 const dialogReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE_FUNCTION:
+        case ADD_MESSAGE_FUNCTION: {
+
             let newMessage = {
                 id: state.currentDialog,
                 isUserMessage: true,
                 message: state.newMessageText,
             };
-            state.messagesData.push(newMessage);
-            return state;
-
-        case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.message;
-            return state;
-
-        case SWITCH_DIALOG:
-            state.currentDialog = action.dialogId;
-            return state;
-
+            let stateCopy = {...state};
+            stateCopy.messagesData = [...state.messagesData];
+            stateCopy.messagesData.push(newMessage);
+            stateCopy.newMessageText = '';
+            return stateCopy;
+        }
+        case UPDATE_NEW_MESSAGE_TEXT: {
+            let stateCopy = {...state};
+            stateCopy.newMessageText = action.message;
+            return stateCopy;
+        }
+        case SWITCH_DIALOG: {
+            let stateCopy = {...state};
+            stateCopy.currentDialog = action.dialogId;
+            return stateCopy;
+        }
         default:
             return state;
     }
@@ -170,4 +176,4 @@ export const switchDialogActionCreator = (dialogId) => ({
     dialogId: dialogId,
 });
 
-export default  dialogReducer;
+export default dialogReducer;
