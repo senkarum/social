@@ -4,8 +4,8 @@ import DialogContainer from "./dialog/dialogContainer";
 
 
 let DialogsColumn = (props) => {
-    let dialogsElements = props.store.getState().dialogPage.dialogsData.map((dialog, i) => {
-        return  <DialogContainer  store={props.store} id={dialog.id} name={dialog.name} key={i}/>
+    let dialogsElements = props.dialogsData.map((dialog, i) => {
+        return  <DialogContainer  id={dialog.id} name={dialog.name} key={i}/>
     });
 
     return (

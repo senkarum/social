@@ -1,19 +1,19 @@
 import React from "react";
 import style from "./dialog.module.css";
-import DialogsColumn from "./dialogsColumn/dialogsColumn";
-import MessagesColumn from "./messagesColumn/messagesColumn";
 import AddMessageContainer from "./addMessage/addMessageContainer";
+import DialogsColumnContainer from "./dialogsColumn/dialogsColumnСontainer";
+import MessagesColumnContainer from "./messagesColumn/messagesColumnContainer";
 
 
 
 let Dialogs = (props) => {
     return (
         <section className={style.dialogs}>
-            <DialogsColumn store={props.store}/>
-            <MessagesColumn messagesData={props.store.getState().dialogPage.messagesData}/>
-            <AddMessageContainer store={props.store}/>
+            <DialogsColumnContainer/>
+            <MessagesColumnContainer/>
+            <AddMessageContainer/>
         </section>
     );
-}
+};
 
 export default Dialogs;

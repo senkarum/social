@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./sidebar.module.css";
 import {NavLink} from "react-router-dom";
-import Friends from "./friends/friends";
+import FriendsСontainer from "./friends/friendsСontainer";
 
 
 
@@ -14,7 +14,7 @@ let Sidebar = (props) => {
             <div className={style.sidebar_item}><NavLink activeClassName={style.active} to="/music">Music</NavLink></div>
             <div className={style.sidebar_item}><NavLink activeClassName={style.active} to="/settings">Setting</NavLink></div>
 
-            <Friends friendsData={props.sidebarData.friends}/>
+            <FriendsСontainer/>
         </nav>
     );
 }

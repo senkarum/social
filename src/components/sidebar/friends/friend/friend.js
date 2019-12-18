@@ -9,7 +9,7 @@ let Friend = (props) => {
             <p>{props.name}</p>
         </div>
     );
-}
+};
 
 
 export default Friend;

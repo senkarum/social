@@ -8,13 +8,16 @@ import {
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import StoreContext, {Provider} from "./storeContext";
 
 
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <Router>
-            <App appState={state} dispatch={store.dispatch.bind(store)} store={store}/>
+            <Provider store={store}>
+                <App/>
+            </Provider>
         </Router>, document.getElementById('root')) ;
 
 };

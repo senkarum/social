@@ -18,7 +18,7 @@ let Friends = (props) => {
             { friendsElements }
         </div>
     );
-}
+};
 
 
 export default Friends;

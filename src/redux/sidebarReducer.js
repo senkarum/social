@@ -29,7 +29,7 @@ let initialState = {
             name: 'Vasyan'
         },
     ],
-}
+};
 
 const sidebarReducer = (state = initialState, action) => {
 
