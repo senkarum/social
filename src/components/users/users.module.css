@@ -1,0 +1,69 @@
+.users {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.user__mini {
+    margin: 10px auto;
+    border-bottom: 2px solid #1fbeee;
+    padding: 10px 5px 10px 135px;
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 140px;
+}
+.user__mini:last-of-type {
+    border: none;
+}
+
+.user__avatar {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 5px;
+    top: 5px;
+}
+.user__subscribe {
+    position: absolute;
+    width: 100px;
+    left: 5px;
+    top: 105px;
+    padding: 5px 0;
+    background: #1fbeee;
+    border: none;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.user__subscribe__off {
+    position: absolute;
+    width: 100px;
+    left: 5px;
+    top: 105px;
+    padding: 5px 0;
+    opacity: 0.8;
+    background: #1fbeee;
+    border: none;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.user__name {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.user__status {
+    font-size: 16px;
+}
+
+.user__location {
+    font-size: 14px;
+    font-weight: bold;
+}

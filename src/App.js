@@ -9,28 +9,36 @@ import Dialogs from "./components/dialogs/dialogs";
 import Music from "./components/music/music";
 import News from "./components/news/news";
 import Settings from "./components/setting/settings";
+import UsersContainer from "./components/users/usersContainer";
 
+class App extends React.Component{
+    constructor(props) {
+        super(props);
+    }
 
-const App = (props) => {
-    return (
-        <div className="full_page">
-            <Header/>
+    render() {
+        return (
+            <div className="full_page">
+                <Header/>
 
-            <div className="content_cont">
-                <Sidebar/>
-                <Switch>
-                    <Route path='/profile' render={() => <Profile/>}/>
-                    <Route path='/dialog' render={() => <Dialogs/>}/>
-                    <Route path='/news' component={News}/>
-                    <Route path='/music' component={Music}/>
-                    <Route path='/settings' component={Settings}/>
-                </Switch>
+                <div className="content_cont">
+                    <Sidebar/>
+                    <Switch>
+                        <Route exact path='/' render={() => <Profile/>}/>
+                        <Route path='/dialog' render={() => <Dialogs/>}/>
+                        <Route path='/news' component={News}/>
+                        <Route path='/music' component={Music}/>
+                        <Route path='/settings' component={Settings}/>
+                        <Route path='/users' render={() => <UsersContainer/>}/>
+                    </Switch>
+                </div>
+
+                <Footer/>
             </div>
+        );
+    }
+}
 
-            <Footer/>
-        </div>
-    );
-};
 
 
 export default App;

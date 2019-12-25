@@ -1,23 +1,26 @@
 import React from "react";
 import style from "./../../dialog.module.css";
 import {NavLink} from "react-router-dom";
-import {switchDialogActionCreator} from "../../../../redux/dialogReducer";
 
+class Dialog extends React.Component {
+    constructor(props){
+        super(props)
+    }
 
-let Dialog = (props) => {
-
-    let switchDialog = (e) => {
+    switchDialog = (e) => {
         let currentId = e.target.getAttribute('data-id');
-        props.switchDialog(currentId)
+        this.props.switchDialog(currentId)
     };
 
+    render() {
+        return (
+            <div className={style.dialog_item}>
+                <NavLink onClick={this.switchDialog} data-id={this.props.id} activeClassName={style.active}
+                         to={`/dialog/${this.props.id}`}>{this.props.name}</NavLink>
+            </div>
+        );
+    }
+}
 
-    return (
-        <div className={style.dialog_item}>
-            <NavLink onClick={switchDialog} data-id={props.id} activeClassName={style.active}
-                     to={`/dialog/${props.id}`}>{props.name}</NavLink>
-        </div>
-    );
-};
 
 export default Dialog;

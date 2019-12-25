@@ -1,13 +1,18 @@
 import React from "react";
 import style from "./header.module.css";
 
+class Header extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
-let Header = () => {
-    return (
-        <header className={style.header}>
-          <p className={style.logo}>LOGO</p>
-        </header>
-    );
+    render() {
+        return (
+            <header className={style.header}>
+                <p className={style.logo}>LOGO</p>
+            </header>
+        );
+    }
 }
 
 export default Header;

@@ -5,23 +5,25 @@ import {
 import style from "./../dialog.module.css";
 import Message from "./message/message";
 
+class MessagesColumn extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
-let MessagesColumn = (props) => {
 
-   let messagesElements = props.messagesData.map((message, i) => {
-       return <Route path={'/dialog/'+message.id} key={i}  render={ () => <Message message={message.message} isUser={message.isUserMessage}  /> }/>
-    });
-    return (
 
-            <div className={style.messages_column}>
+    render() {
+        let messagesElements = this.props.messagesData.map((message, i) => {
+            return <Route path={'/dialog/'+message.id} key={i}  render={ () => <Message message={message.message} isUser={message.isUserMessage}  /> }/>
+        });
+        return (
+            <div  className={style.messages_column}>
                 <div className={style.overflow_container}>
-                { messagesElements }
+                    { messagesElements }
                 </div>
-
             </div>
-
-
-    );
+        );
+    }
 }
 
 export default MessagesColumn;

@@ -2,6 +2,7 @@ const ADD_MESSAGE_FUNCTION = 'ADD-MESSAGE-FUNCTION';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 const SWITCH_DIALOG = 'SWITCH-DIALOG';
 
+
 let initialState = {
     dialogsData: [
         {
@@ -131,30 +132,41 @@ let initialState = {
 };
 
 const dialogReducer = (state = initialState, action) => {
+    let stateCopy;
     switch (action.type) {
-        case ADD_MESSAGE_FUNCTION: {
 
+        case ADD_MESSAGE_FUNCTION: {
             let newMessage = {
                 id: state.currentDialog,
                 isUserMessage: true,
                 message: state.newMessageText,
             };
-            let stateCopy = {...state};
-            stateCopy.messagesData = [...state.messagesData];
+            stateCopy = {
+                ...state,
+                messagesData: [...state.messagesData],
+                newMessageText: ''
+            };
             stateCopy.messagesData.push(newMessage);
-            stateCopy.newMessageText = '';
             return stateCopy;
         }
+
         case UPDATE_NEW_MESSAGE_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.newMessageText = action.message;
+            stateCopy = {
+                ...state,
+                newMessageText: action.message
+            };
             return stateCopy;
         }
+
         case SWITCH_DIALOG: {
-            let stateCopy = {...state};
-            stateCopy.currentDialog = action.dialogId;
+            stateCopy = {
+                ...state,
+                currentDialog: action.dialogId
+            };
             return stateCopy;
         }
+
+
         default:
             return state;
     }
@@ -175,5 +187,7 @@ export const switchDialogActionCreator = (dialogId) => ({
     type: SWITCH_DIALOG,
     dialogId: dialogId,
 });
+
+
 
 export default dialogReducer;

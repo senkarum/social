@@ -1,9 +1,13 @@
 import React from "react";
 import style from "./myPosts.module.css"
 
+class UserInfo extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-let User = () => {
-    return (
+    render() {
+        return (
             <div className={style.user}>
                 <img
                     src="https://www.infosgrandslacs.info/sites/default/files/styles/trombino/public/default_images/profile.png?itok=WAjxmEAc"
@@ -17,7 +21,10 @@ let User = () => {
                     <p className={style.site}>Web site: <span>нет</span></p>
                 </div>
             </div>
-    );
+        );
+    }
+
 }
 
-export default User;
+
+export default UserInfo;
