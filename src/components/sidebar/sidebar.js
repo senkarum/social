@@ -1,13 +1,10 @@
 import React from "react";
 import style from "./sidebar.module.css";
 import {NavLink} from "react-router-dom";
-import FriendsСontainer from "./friends/friendsСontainer";
+import FriendsContainer from "./friends/friendsСontainer";
 
 
 class Sidebar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
@@ -18,7 +15,7 @@ class Sidebar extends React.Component {
                 <div className={style.sidebar_item}><NavLink activeClassName={style.active} to="/music">Music</NavLink></div>
                 <div className={style.sidebar_item}><NavLink activeClassName={style.active} to="/settings">Setting</NavLink></div>
                 <div className={style.sidebar_item}><NavLink activeClassName={style.active} to="/users">Users</NavLink></div>
-                <FriendsСontainer/>
+                <FriendsContainer/>
             </nav>
         );
     }

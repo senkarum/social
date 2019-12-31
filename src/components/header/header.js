@@ -2,9 +2,6 @@ import React from "react";
 import style from "./header.module.css";
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return (

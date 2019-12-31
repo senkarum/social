@@ -6,11 +6,6 @@ import style from "./../dialog.module.css";
 import Message from "./message/message";
 
 class MessagesColumn extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-
 
     render() {
         let messagesElements = this.props.messagesData.map((message, i) => {

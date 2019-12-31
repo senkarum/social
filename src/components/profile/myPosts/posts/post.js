@@ -2,9 +2,6 @@ import React from "react";
 import style from "./../myPosts.module.css"
 
 class Post extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

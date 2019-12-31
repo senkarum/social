@@ -1,4 +1,3 @@
-import React from "react";
 import DialogsColumn from "./dialogsColumn";
 import {connect} from "react-redux";
 

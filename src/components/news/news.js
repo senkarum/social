@@ -2,9 +2,6 @@ import React from "react";
 import style from "./news.module.css";
 
 class News extends React.Component {
-    constructor(props){
-        super(props)
-    }
 
     render() {
         return (

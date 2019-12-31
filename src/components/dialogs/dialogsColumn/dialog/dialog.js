@@ -3,9 +3,7 @@ import style from "./../../dialog.module.css";
 import {NavLink} from "react-router-dom";
 
 class Dialog extends React.Component {
-    constructor(props){
-        super(props)
-    }
+
 
     switchDialog = (e) => {
         let currentId = e.target.getAttribute('data-id');

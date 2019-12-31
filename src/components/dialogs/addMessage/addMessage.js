@@ -6,9 +6,6 @@ import style from "./../dialog.module.css";
 let messageTextarea = React.createRef();
 
 class AddMessage extends  React.Component{
-    constructor(props) {
-        super(props)
-    };
 
     addMessageBtn = (e) => {
         e.preventDefault();

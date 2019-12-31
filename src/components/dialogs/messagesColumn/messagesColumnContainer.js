@@ -1,4 +1,3 @@
-import React from "react";
 import MessagesColumn from "./messagesColumn";
 import {connect} from "react-redux";
 

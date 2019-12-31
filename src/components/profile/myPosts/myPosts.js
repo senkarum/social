@@ -5,11 +5,6 @@ let postTextarea = React.createRef();
 
 
 class MyPosts extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-
 
     addPostBtnClick = (e) => {
         e.preventDefault();

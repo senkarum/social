@@ -5,9 +5,7 @@ import DialogsColumnContainer from "./dialogsColumn/dialogsColumnСontainer";
 import MessagesColumnContainer from "./messagesColumn/messagesColumnContainer";
 
 class Dialogs extends  React.Component {
-    constructor(props) {
-        super(props);
-    }
+
 
     render(){
         return (

@@ -2,9 +2,7 @@ import React from "react";
 import style from "./myPosts.module.css"
 
 class UserInfo extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
 
     render() {
         return (

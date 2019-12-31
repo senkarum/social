@@ -4,9 +4,7 @@ import Friend from "./friend/friend";
 
 
 class Friends extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
 
     render() {
         let friendsElements = this.props.friendsData.map((friend, i) => {

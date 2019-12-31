@@ -2,9 +2,7 @@ import React from "react";
 import style from "./../../dialog.module.css";
 
 class Message extends  React.Component {
-    constructor(props) {
-        super(props)
-    }
+
 
     render() {
         return (

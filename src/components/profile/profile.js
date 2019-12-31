@@ -5,10 +5,6 @@ import MyPostsContainer from "./myPosts/myPostsContainer";
 
 
 class Profile extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <section className="profile">

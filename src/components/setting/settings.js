@@ -1,9 +1,6 @@
 import React from "react";
 import style from "./settings.css";
 class Settings extends  React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

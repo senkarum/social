@@ -3,9 +3,7 @@ import style from "./../dialog.module.css";
 import DialogContainer from "./dialog/dialogContainer";
 
 class DialogsColumn extends  React.Component {
-    constructor(props) {
-        super(props)
-    }
+
 
     render() {
         let dialogsElements = this.props.dialogsData.map((dialog, i) => {

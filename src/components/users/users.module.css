@@ -67,3 +67,26 @@
     font-size: 14px;
     font-weight: bold;
 }
+
+.pagination_list {
+    display: block;
+    text-align: center;
+}
+
+.pagination_list li {
+    display: inline-block;
+    font-size: 12px;
+    min-width: 34px;
+    line-height: 30px;
+    margin: 5px;
+    border: 2px solid #1fbfee;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.pagination_list  .active {
+
+    background: #1fbfee;
+    color: white;
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import Friends from "./friends";
 import {connect} from "react-redux";
 
@@ -15,6 +14,6 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {}
 };
-const FriendsСontainer = connect(mapStateToProps, mapDispatchToProps)(Friends);
+const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends);
 
-export default FriendsСontainer;
+export default FriendsContainer;

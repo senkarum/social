@@ -1,4 +1,3 @@
-import React from "react";
 import {switchDialogActionCreator} from "../../../../redux/dialogReducer";
 import Dialog from "./dialog";
 import {connect} from "react-redux";

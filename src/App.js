@@ -12,9 +12,6 @@ import Settings from "./components/setting/settings";
 import UsersContainer from "./components/users/usersContainer";
 
 class App extends React.Component{
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
