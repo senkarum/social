@@ -1,27 +1,28 @@
 import React from "react";
 import style from "./myPosts.module.css"
+import noName from "../../../assets/img/noname.png"
+import Preloader from "../../common/preloader/preloader";
 
-class UserInfo extends React.Component {
 
 
-    render() {
-        return (
-            <div className={style.user}>
-                <img
-                    src="https://www.infosgrandslacs.info/sites/default/files/styles/trombino/public/default_images/profile.png?itok=WAjxmEAc"
-                    alt="" className={style.avatar}/>
-
-                <div className={style.info}>
-                    <p className={style.name}>USER</p>
-                    <p className={style.birthday}>Date of Birth: <span>23.01.93</span></p>
-                    <p className={style.city}>City: <span>Nsk</span></p>
-                    <p className={style.education}>Education: <span>9 классов</span></p>
-                    <p className={style.site}>Web site: <span>нет</span></p>
-                </div>
-            </div>
-        );
+const UserInfo = (props) => {
+    if (!props.profile)  {
+        return <Preloader/>
     }
 
+    return (
+        <div className={style.user}>
+            <img
+                src={!props.profile.photos.small ? noName : props.profile.photos.small}
+                alt="" className={style.avatar}/>
+
+            <div className={style.info}>
+                <p className={style.name}>{props.profile.fullName}</p>
+                <p>About me: <span>{props.profile.aboutMe}</span></p>
+                <p className={style.site}>Web site: <span>{props.profile.contacts.facebook}</span></p>
+            </div>
+        </div>
+    )
 }
 
 

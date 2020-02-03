@@ -25,6 +25,8 @@ let mapDispatchToProps = (dispatch) => {
 
     }
 };
+
+
 const AddMessageContainer = connect(mapStateToProps, mapDispatchToProps)(AddMessage);
 
 

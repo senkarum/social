@@ -4,17 +4,14 @@ import UserBg from "./myPosts/userBg.js"
 import MyPostsContainer from "./myPosts/myPostsContainer";
 
 
-class Profile extends React.Component {
-    render() {
-        return (
-            <section className="profile">
-                <UserBg/>
-                <UserInfo/>
-                <MyPostsContainer/>
-            </section>
-        );
-    }
-
-}
+const Profile = (props) => {
+    return (
+        <section className="profile">
+            <UserBg/>
+            <UserInfo profile={props.profile}/>
+            <MyPostsContainer/>
+        </section>
+    )
+};
 
 export default Profile;

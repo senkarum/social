@@ -12,6 +12,7 @@
 .user {
     padding-left: 130px;
     position: relative;
+    min-height: 115px;
 }
 .user .avatar {
     position: absolute;
