@@ -11,6 +11,7 @@ const UserInfo = (props) => {
     }
 
     return (
+
         <div className={style.user}>
             <img
                 src={!props.profile.photos.small ? noName : props.profile.photos.small}
@@ -20,6 +21,7 @@ const UserInfo = (props) => {
                 <p className={style.name}>{props.profile.fullName}</p>
                 <p>About me: <span>{props.profile.aboutMe}</span></p>
                 <p className={style.site}>Web site: <span>{props.profile.contacts.facebook}</span></p>
+                <p>{}</p>
             </div>
         </div>
     )

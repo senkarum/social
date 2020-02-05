@@ -37,7 +37,10 @@
     text-align: center;
     cursor: pointer;
 }
-
+.user__subscribe[disabled], .user__subscribe__off[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
 .user__subscribe__off {
     position: absolute;
     width: 100px;
@@ -57,6 +60,13 @@
     font-size: 20px;
     margin-bottom: 5px;
     font-weight: bold;
+    color: black;
+}
+.user__name a {
+    color: inherit;
+}
+.user__id {
+    margin-bottom: 5px;
 }
 .preloader {
     display: block;

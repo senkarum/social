@@ -1,47 +1,21 @@
 import {
-    follow,
+    follow, getUsers,
     setCurrentPage,
-    setTotalUserCount,
-    setUsers,
-    toggleIsFething,
     unFollow,
-} from "../../redux/usersReducer";
-import {connect} from "react-redux";
-import React from "react";
-import * as axios from "axios";
-import Users from "./users";
-import Preloader from "../common/preloader/preloader";
+} from '../../redux/usersReducer';
+import {connect} from 'react-redux';
+import React from 'react';
+import Users from './users';
+import Preloader from '../common/preloader/preloader';
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFething(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-            withCredentials: true,
-            header: {
-                'API-KEY': '6e36f02d-da2a-4923-9071-41195f0b3e5c',
-            }
-        })
-            .then(response => {
-                this.props.toggleIsFething(false);
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUserCount(response.data.totalCount);
-            });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     pageSwitcher = (page) => {
-        this.props.toggleIsFething(true);
-        this.props.setCurrentPage(page);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`,  {
-            withCredentials: true,
-            header: {
-                'API-KEY': '6e36f02d-da2a-4923-9071-41195f0b3e5c',
-            }
-        })
-            .then(response => {
-                this.props.toggleIsFething(false);
-                this.props.setUsers(response.data.items);
-            });
+        this.props.getUsers(page, this.props.pageSize);
     };
 
     render() {
@@ -54,6 +28,7 @@ class UsersContainer extends React.Component {
                                              users={this.props.users}
                                              pageSwitcher={this.pageSwitcher}
                                              unFollow={this.props.unFollow}
+                                             followingInProgress={this.props.followingInProgress}
                                              follow={this.props.follow}/> : null}
 
         </>
@@ -66,14 +41,18 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 };
 
 
 let mapDispatchToProps = {
-    follow, unFollow, setUsers, setCurrentPage, setTotalUserCount, toggleIsFething
-}
+    follow,
+    unFollow,
+    setCurrentPage,
+    getUsers
+};
 
 
 
