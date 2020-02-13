@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import React from 'react';
 import Users from './users';
 import Preloader from '../common/preloader/preloader';
+import {withAuthRedicert} from "../../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
 
@@ -54,36 +55,6 @@ let mapDispatchToProps = {
     getUsers
 };
 
+let AuthRedirectComponent = withAuthRedicert(UsersContainer);
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
-
-/*
-let mapDispatchToProps = (dispatch) => {
-    return {
-
-        follow: (userId) => {
-            dispatch(followAC(userId));
-        },
-
-        unFollow: (userId) => {
-            dispatch(unFollowAC(userId));
-        },
-
-        setUser: (users) => {
-            dispatch(setUsersAC(users));
-        },
-
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-
-        setTotalUserCount: (totalCount) => {
-            dispatch(setTotalUserCountAC(totalCount))
-        },
-
-        toggleIsFething: (isFething) => {
-            dispatch(toggleIsFethingAC(isFething))
-        }
-    }
-};*/
+export default connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);

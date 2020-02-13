@@ -1,8 +1,10 @@
-import React from "react";
-import Profile from "./profile";
-import {connect} from "react-redux";
-import {getProfile} from "../../redux/profileReducer";
-import {withRouter} from "react-router";
+import React from 'react';
+import Profile from './profile';
+import {connect} from 'react-redux';
+import {getProfile} from '../../redux/profileReducer';
+import {Redirect, withRouter} from "react-router/esm/react-router";
+import {withAuthRedicert} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 
 class ProfileContainer extends React.Component {
@@ -17,6 +19,8 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+
+
         return (
             <Profile {...this.props} profile={this.props.profile}/>
         );
@@ -24,15 +28,22 @@ class ProfileContainer extends React.Component {
 
 }
 
+
+
+
+
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
 });
 
 let mapdispatchToProps = {
     getProfile
 }
 
+/*let AuthRedirectComponent = withAuthRedicert(ProfileContainer);
 
-let WithUrlDataContainerComponents = withRouter(ProfileContainer);
+let WithUrlDataContainerComponents = withRouter(AuthRedirectComponent);
 
-export default connect(mapStateToProps, mapdispatchToProps)(WithUrlDataContainerComponents);
+export default connect(mapStateToProps, mapdispatchToProps)(WithUrlDataContainerComponents);*/
+
+export default compose(connect(mapStateToProps, mapdispatchToProps), withRouter,/*withAuthRedicert*/)(ProfileContainer)

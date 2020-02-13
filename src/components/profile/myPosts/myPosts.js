@@ -26,11 +26,9 @@ class MyPosts extends React.Component {
             <div className={style.my_posts}>
                 <div className={style.add_posts}>
                     <h2>My Posts</h2>
-                    <form action="">
                 <textarea onChange={this.onPostChange} ref={postTextarea} value={this.props.newPostText} rows="4"
                           placeholder="your news"/>
                         <button onClick={this.addPostBtnClick} className="btn">Send</button>
-                    </form>
                 </div>
                 <div className={style.latest_posts}>
                     { postsElements }

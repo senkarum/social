@@ -1,7 +1,8 @@
 import React from "react";
-import style from "./myPosts.module.css"
+import style from "../myPosts/myPosts.module.css"
 import noName from "../../../assets/img/noname.png"
 import Preloader from "../../common/preloader/preloader";
+import UserStatus from "./userStatus";
 
 
 
@@ -23,6 +24,7 @@ const UserInfo = (props) => {
                 <p className={style.site}>Web site: <span>{props.profile.contacts.facebook}</span></p>
                 <p>{}</p>
             </div>
+            <UserStatus status={123123}/>
         </div>
     )
 }
