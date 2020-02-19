@@ -7,7 +7,8 @@ import UserStatus from "./userStatus";
 
 
 const UserInfo = (props) => {
-    if (!props.profile)  {
+    console.log(props.isFetching);
+    if (!props.profile || props.isFetching)  {
         return <Preloader/>
     }
 
@@ -22,9 +23,8 @@ const UserInfo = (props) => {
                 <p className={style.name}>{props.profile.fullName}</p>
                 <p>About me: <span>{props.profile.aboutMe}</span></p>
                 <p className={style.site}>Web site: <span>{props.profile.contacts.facebook}</span></p>
-                <p>{}</p>
             </div>
-            <UserStatus status={123123}/>
+            <UserStatus  status={props.status} updateStatus={props.updateStatus}/>
         </div>
     )
 }

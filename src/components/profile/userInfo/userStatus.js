@@ -2,30 +2,40 @@ import React from "react";
 
 
 class UserStatus extends React.Component {
-
+    statusInputRef = React.createRef();
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status,
+
     };
 
-    activateEditMode() {
+    activateEditMode = () => {
         this.setState({
             editMode: true
         })
     };
 
-    deactivateEditMode() {
+    deactivateEditMode = () =>  {
         this.setState({
             editMode: false
-        })
+        });
+
+        this.props.updateStatus(this.statusInputRef.current.value);
+    };
+
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value,
+        });
     };
 
     render() {
         return (
             <div>
                 {!this.state.editMode
-                    ? <p onDoubleClick={this.activateEditMode.bind(this)}>{this.props.status}</p>
+                    ? <p onDoubleClick={this.activateEditMode}>{this.props.status || 'No status'}</p>
                     : <>
-                        <input autoFocus onBlur={this.deactivateEditMode.bind(this)} value={this.props.status}/>
+                        <input onChange={this.onStatusChange} ref={this.statusInputRef} autoFocus onBlur={this.deactivateEditMode} defaultValue={this.props.status}/>
                     </>
                 }
 

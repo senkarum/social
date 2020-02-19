@@ -1,8 +1,8 @@
 import React from 'react';
 import Profile from './profile';
 import {connect} from 'react-redux';
-import {getProfile} from '../../redux/profileReducer';
-import {Redirect, withRouter} from "react-router/esm/react-router";
+import {getProfile, getStatus, updateStatus} from '../../redux/profileReducer';
+import {withRouter} from "react-router/esm/react-router";
 import {withAuthRedicert} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
@@ -14,7 +14,8 @@ class ProfileContainer extends React.Component {
         if (!userId) {
             userId = 5806
         }
-        this.props.getProfile(userId)
+        this.props.getProfile(userId);
+        this.props.getStatus(userId);
 
     }
 
@@ -22,7 +23,7 @@ class ProfileContainer extends React.Component {
 
 
         return (
-            <Profile {...this.props} profile={this.props.profile}/>
+            <Profile {...this.props} isFetching={this.props.isFetching} status={this.props.status} profile={this.props.profile} updateStatus={this.props.updateStatus}/>
         );
     }
 
@@ -34,10 +35,14 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
+    status: state.profilePage.status,
+    isFetching: state.profilePage.isFetching
 });
 
 let mapdispatchToProps = {
-    getProfile
+    getProfile,
+    getStatus,
+    updateStatus
 }
 
 /*let AuthRedirectComponent = withAuthRedicert(ProfileContainer);
@@ -46,4 +51,4 @@ let WithUrlDataContainerComponents = withRouter(AuthRedirectComponent);
 
 export default connect(mapStateToProps, mapdispatchToProps)(WithUrlDataContainerComponents);*/
 
-export default compose(connect(mapStateToProps, mapdispatchToProps), withRouter,/*withAuthRedicert*/)(ProfileContainer)
+export default compose(connect(mapStateToProps, mapdispatchToProps), withRouter, withAuthRedicert)(ProfileContainer)

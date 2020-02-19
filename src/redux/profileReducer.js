@@ -3,6 +3,8 @@ import {profileAPI} from "../api/api";
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_USER_STATUS = 'SET_USER_STATUS';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
     postsData: [
@@ -34,6 +36,8 @@ let initialState = {
 
     profile: null,
     newPostText: '',
+    status: '',
+    isFetching: false,
 };
 
 
@@ -60,7 +64,18 @@ const profileReducer = (state = initialState, action) => {
             return  {
                 ...state,
                 profile: action.profile
-            }
+            };
+        case SET_USER_STATUS:
+            return  {
+                ...state,
+                status: action.status
+            };
+        case TOGGLE_IS_FETCHING:
+            console.log(action.statusFetching);
+            return  {
+                ...state,
+                isFetching: action.statusFetching,
+            };
 
 
         default:
@@ -80,12 +95,45 @@ export const setUserProfile = (profile) => ({
     profile: profile
 });
 
+export const setUserStatus = (status) => ({
+    type: SET_USER_STATUS,
+    status: status
+});
+
+export const toggleIsFetching = (statusFetching) => ({
+    type: TOGGLE_IS_FETCHING,
+    statusFetching: statusFetching
+});
+
+export const getStatus = (userId) => {
+    return (dispatch) => {
+        profileAPI.getStatus(userId).then(response => {
+            dispatch(setUserStatus(response.data))
+        })
+    }
+};
+
+export const updateStatus = (status) => {
+    return (dispatch) => {
+        profileAPI.updateStatus(status).then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setUserStatus(status));
+            }
+        })
+    }
+};
+
+
 
 export const getProfile = (userId) => {
     return (dispatch) => {
-        profileAPI.getProfile(userId).then(data => {
-            dispatch(setUserProfile(data));
+        dispatch(toggleIsFetching(true));
+        profileAPI.getProfile(userId).then(response => {
+            console.log(response.data);
+            dispatch(setUserProfile(response.data));
+            dispatch(toggleIsFetching(false));
         });
+
     }
 };
 
