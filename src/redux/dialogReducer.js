@@ -139,7 +139,7 @@ const dialogReducer = (state = initialState, action) => {
             let newMessage = {
                 id: state.currentDialog,
                 isUserMessage: true,
-                message: state.newMessageText,
+                message: action.message,
             };
             stateCopy = {
                 ...state,

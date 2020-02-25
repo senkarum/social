@@ -7,7 +7,6 @@ import UserStatus from "./userStatus";
 
 
 const UserInfo = (props) => {
-    console.log(props.isFetching);
     if (!props.profile || props.isFetching)  {
         return <Preloader/>
     }

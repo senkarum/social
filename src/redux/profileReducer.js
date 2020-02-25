@@ -46,7 +46,7 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST:
             let newPost = {
                 id: 5,
-                messages: state.newPostText,
+                messages: action.newPostText,
                 likes: 0,
             };
             return {
@@ -71,7 +71,6 @@ const profileReducer = (state = initialState, action) => {
                 status: action.status
             };
         case TOGGLE_IS_FETCHING:
-            console.log(action.statusFetching);
             return  {
                 ...state,
                 isFetching: action.statusFetching,
@@ -83,7 +82,11 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-export const addPostActionCreator = () => ({type: ADD_POST});
+export const addPostActionCreator = (postText) => (
+    {
+        type: ADD_POST,
+        newPostText: postText
+    });
 
 export const updateNewPostTextActionCreator = (text) => ({
     type: UPDATE_NEW_POST_TEXT,
@@ -129,7 +132,6 @@ export const getProfile = (userId) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
         profileAPI.getProfile(userId).then(response => {
-            console.log(response.data);
             dispatch(setUserProfile(response.data));
             dispatch(toggleIsFetching(false));
         });

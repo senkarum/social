@@ -1,0 +1,36 @@
+.inp_cont {
+    display: block;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+.inp_cont .standart {
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+.btn {
+    display: block;
+    max-width: 150px;
+    width: 100%;
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #1fbfee;
+    background: #1fbfee;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+    margin-left: auto;
+    border: 1px solid #ccc;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: #1fbfee;
+}

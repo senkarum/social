@@ -51,4 +51,4 @@ let WithUrlDataContainerComponents = withRouter(AuthRedirectComponent);
 
 export default connect(mapStateToProps, mapdispatchToProps)(WithUrlDataContainerComponents);*/
 
-export default compose(connect(mapStateToProps, mapdispatchToProps), withRouter, withAuthRedicert)(ProfileContainer)
+export default compose(connect(mapStateToProps, mapdispatchToProps), withRouter, /*withAuthRedicert*/)(ProfileContainer)

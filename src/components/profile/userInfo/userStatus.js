@@ -29,6 +29,14 @@ class UserStatus extends React.Component {
         });
     };
 
+    componentDidUpdate(prevProps) {
+        if(prevProps.status !== this.props.status) {
+            this.setState({
+            status: this.props.status,
+        });
+        }
+    }
+
     render() {
         return (
             <div>
@@ -38,7 +46,6 @@ class UserStatus extends React.Component {
                         <input onChange={this.onStatusChange} ref={this.statusInputRef} autoFocus onBlur={this.deactivateEditMode} defaultValue={this.props.status}/>
                     </>
                 }
-
             </div>
         )
     }

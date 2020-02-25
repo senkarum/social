@@ -1,21 +1,19 @@
 import React from "react";
 import style from "./myPosts.module.css"
 import Post from "./posts/post.js";
+import {Field, reduxForm} from "redux-form";
 let postTextarea = React.createRef();
 
 
 class MyPosts extends React.Component {
 
-    addPostBtnClick = (e) => {
-        e.preventDefault();
-        let postText = postTextarea.current.value;
+    addNewPost = (postMessage) => {
+        let postText = postMessage.post;
+        console.log(postText);
         this.props.addPost(postText);
     };
 
-    onPostChange = () => {
-        let postText = postTextarea.current.value;
-        this.props.updateNewPostText(postText)
-    };
+
 
     render() {
         let postsElements = this.props.postsData.map((post, i) => {
@@ -26,9 +24,8 @@ class MyPosts extends React.Component {
             <div className={style.my_posts}>
                 <div className={style.add_posts}>
                     <h2>My Posts</h2>
-                <textarea onChange={this.onPostChange} ref={postTextarea} value={this.props.newPostText} rows="4"
-                          placeholder="your news"/>
-                        <button onClick={this.addPostBtnClick} className="btn">Send</button>
+                    <AddPostFormRedux onSubmit={this.addNewPost}/>
+
                 </div>
                 <div className={style.latest_posts}>
                     { postsElements }
@@ -39,4 +36,14 @@ class MyPosts extends React.Component {
 }
 
 
+const AddPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field component="textarea" placeholder="your news" name="post"/>
+            <button  className="btn">Send</button>
+        </form>
+    )
+}
+
+const  AddPostFormRedux = reduxForm({form: 'postForm'})(AddPostForm)
 export default MyPosts;
