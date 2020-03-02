@@ -6,10 +6,13 @@
 h1 {
     margin-bottom: 20px;
 }
-.inp_cont .standart {
+.standart input {
     display: block;
     width: 100%;
     padding: 10px;
+}
+.inp_cont div {
+    display: inline-block;
 }
 
 .btn {

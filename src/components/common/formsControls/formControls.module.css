@@ -1,0 +1,14 @@
+.error {
+    border: 2px solid red!important;
+}
+
+.error_text {
+    display: none;
+}
+
+.error_text {
+    display: block;
+    color: red;
+    font-size: 12px;
+    text-align: center;
+}
